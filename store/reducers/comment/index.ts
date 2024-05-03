@@ -20,7 +20,6 @@ const commentSlice = createSlice({
         id: uuid.v4(),
         ...action.payload,
       };
-      console.log(payload);
       state.comments.push(payload);
       //   state.comments = [...state.comments, ...payload];
       state.isLoading = false;
@@ -40,7 +39,6 @@ const commentSlice = createSlice({
         id: uuid.v4(),
         ...action.payload,
       };
-      console.log(payload);
 
       state.repliesToReply.push(payload);
       state.isLoading = false;

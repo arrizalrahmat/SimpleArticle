@@ -9,7 +9,6 @@ import {
 import styles from './reply-card.style';
 import React, {
   useCallback,
-  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -45,10 +44,6 @@ const ReplyCard: React.FC<ReplyCardPropTypes> = (props) => {
       ),
     [isReplyToReplySectionShown]
   );
-
-  useEffect(() => {
-    console.log(currentRepliesToReply);
-  }, [currentRepliesToReply]);
 
   const renderItem = ({ item, index }) => {
     return (
