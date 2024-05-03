@@ -26,6 +26,7 @@ const Home = () => {
     handleSubmitComment,
     handleSubmitReply,
     handleSubmitReplyToReply,
+    handleSubmitSearch,
   } = useHome();
 
   const renderItem = ({ item, index }) => {
@@ -44,7 +45,11 @@ const Home = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header query={query} onChange={handleChangeQuery} />
+      <Header
+        query={query}
+        onChange={handleChangeQuery}
+        onSubmit={handleSubmitSearch}
+      />
       <View style={styles.content}>
         {articles ? (
           <FlatList

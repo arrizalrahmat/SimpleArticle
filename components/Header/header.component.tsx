@@ -5,7 +5,7 @@ import styles from './header.style';
 import { Feather } from '@expo/vector-icons';
 
 const Header: React.FC<HeaderPropTypes> = (props) => {
-  const { query, onChange } = props;
+  const { query, onChange, onSubmit } = props;
 
   return (
     <View style={styles.container}>
@@ -22,6 +22,7 @@ const Header: React.FC<HeaderPropTypes> = (props) => {
           placeholder="Search..."
           placeholderTextColor="rgba(9, 132, 227, 0.4))" // Light gray placeholder text color
           onChangeText={onChange}
+          onSubmitEditing={onSubmit}
         />
       </View>
     </View>

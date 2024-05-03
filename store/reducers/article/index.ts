@@ -69,15 +69,17 @@ export default articleSlice.reducer;
 
 export const fetchArticles = createAsyncThunk(
   '/article/fetchArticles',
-  async (_, { rejectWithValue }) => {
+  async (customQuery: any, { rejectWithValue }) => {
     try {
-      const query = { limit: 10 };
+      const query = { limit: 10, ...customQuery };
+
       const queryParams = new URLSearchParams(
         query as any
       ).toString();
       const response = await fetch(`${url}?${queryParams}`);
       const data: APIResponse<Article[]> =
         await response.json();
+      console.log(data);
 
       return data;
     } catch (error) {

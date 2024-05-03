@@ -48,6 +48,10 @@ export const useHome = () => {
     setQuery(q);
   }, []);
 
+  const handleSubmitSearch = useCallback(() => {
+    dispatch(fetchArticles({ search: query }));
+  }, [query]);
+
   const handleOnEnd = useCallback(() => {
     if (data.pagination) {
       dispatch(refetchArticles(data.pagination.next));
@@ -107,7 +111,7 @@ export const useHome = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchArticles());
+    dispatch(fetchArticles({}));
   }, []);
 
   return {
@@ -123,5 +127,6 @@ export const useHome = () => {
     handleSubmitComment,
     handleSubmitReply,
     handleSubmitReplyToReply,
+    handleSubmitSearch,
   };
 };
